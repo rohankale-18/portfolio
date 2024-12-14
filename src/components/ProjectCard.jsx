@@ -1,13 +1,47 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 
 const ProjectCard = ({ imgSrc, title, description, techStack, link }) => {
+	const ref = useRef(null); // Ref for the card
+	const isInView = useInView(ref, { threshold: 0.2 }); // Trigger when 20% is visible
+	const [isScrollingDown, setIsScrollingDown] = useState(false);
+	const [lastScrollY, setLastScrollY] = useState(0);
+	const [hasAnimated, setHasAnimated] = useState(false); // Track if animation has already played
+
+	// Detect scroll direction
+	useEffect(() => {
+		const handleScroll = () => {
+			const currentScrollY = window.scrollY;
+			setIsScrollingDown(currentScrollY > lastScrollY);
+			setLastScrollY(currentScrollY);
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, [lastScrollY]);
+
+	// Update `hasAnimated` when in view and scrolling down
+	useEffect(() => {
+		if (isInView && isScrollingDown) {
+			setHasAnimated(true);
+		}
+	}, [isInView, isScrollingDown]);
+
 	return (
-		<div className="bg-gray-900 hover:scale-[1.01] transition-all duration-200 ease-in-out min-h-[300px] rounded-lg shadow-2xl overflow-hidden max-w-4xl w-full mx-auto flex">
+		<motion.div
+			ref={ref}
+			className="bg-gray-900 min-h-[300px] rounded-lg shadow-2xl overflow-hidden max-w-4xl w-full mx-auto flex"
+			initial={{ opacity: 0, y: 50 }} // Initial state
+			animate={hasAnimated ? { opacity: 1, y: 0 } : {}} // Trigger animation only once
+			transition={{ duration: 0.33, ease: "easeInOut" }} // Smooth transition
+			whileHover={{ scale: 1.01 }}
+		>
 			<a
 				href={link}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="relative transition-all duration-200 ease-in-out w-1/2">
+				className="relative transition-all duration-200 ease-in-out w-1/2"
+			>
 				<img src={imgSrc} alt={title} className="w-full h-full object-cover" />
 				<div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black opacity-50"></div>
 			</a>
@@ -33,7 +67,7 @@ const ProjectCard = ({ imgSrc, title, description, techStack, link }) => {
 					View Project
 				</a>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

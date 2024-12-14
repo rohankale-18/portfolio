@@ -1,5 +1,6 @@
 import ProjectCard from "./components/ProjectCard"
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { motion } from "motion/react"
 
 function App() {
 	return (
@@ -11,7 +12,11 @@ function App() {
 			</nav> */}
 			<div className='w-full flex justify-center font-poppins pb-20'>
 				<main className='w-full max-w-screen-2xl bg-secondary'>
-					<div className="w-full flex gap-10">
+					<motion.div
+						initial={{ y: 20, opacity: 0 }}
+						animate={{ y: 0, opacity: 1 }}
+						transition={{ duration: 0.75 }}
+						className="w-full flex gap-10">
 						<div className='sticky top-20 w-[60%] h-fit flex justify-end'>
 							<div className="max-w-[450px] w-full h-full">
 								{/* <div className="size-40 bg-blue-500">
@@ -69,7 +74,7 @@ function App() {
 							</section>
 
 						</div>
-					</div>
+					</motion.div>
 					<div className="w-full flex flex-col items-center gap-10 px-10">
 						<p className="w-full text-center text-4xl font-bold">Personal Projects</p>
 						{/* <ProjectCard title="Quizify" /> */}
