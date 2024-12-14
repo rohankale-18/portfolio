@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* * {
+  @apply outline outline-red-800;
+} */
+
+.colors{
+	background-color: rgb(66, 125, 177);
+}
