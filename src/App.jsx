@@ -5,6 +5,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
 import Lenis from "lenis";
 import { useEffect, useRef } from "react";
+import Navbar from "./components/Navbar";
 
 function App() {
 	const container = useRef(null);
@@ -25,11 +26,7 @@ function App() {
 	})
 	return (
 		<div className='relative w-full min-h-[100dvh] bg-slate-950 text-white'>
-			<div className="max-w-7xl pt-4 mx-auto sticky top-0 z-10">
-				<nav className='w-full bg-gray-950/50 backdrop-blur-lg rounded-full h-[50px] flex justify-center ring-1 ring-white'>
-
-				</nav>
-			</div>
+			<Navbar />
 			<div className='w-full flex justify-center font-poppins pb-20'>
 				<main className='w-full max-w-screen-2xl bg-secondary'>
 					<motion.div
