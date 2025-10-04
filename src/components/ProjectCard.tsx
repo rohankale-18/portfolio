@@ -10,7 +10,7 @@ const ProjectCard = ({ imgSrc, title, description, techStack, link }: any) => {
                 className="relative transition-all duration-200 ease-in-out w-full md:w-1/2"
             >
                 <img
-                    src={`/portfolio/${imgSrc}`}
+                    src={`./${imgSrc}`}
                     alt={title}
                     className="w-full h-full object-cover"
                 />

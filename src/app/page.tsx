@@ -200,7 +200,7 @@ function App() {
                             className="w-full text-center py-40"
                         >
                             <a
-                                href="/portfolio/RohanResume.pdf"
+                                href="./RohanResume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-xl font-medium text-white hover:text-primary-light hover:underline"

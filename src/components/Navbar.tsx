@@ -71,7 +71,7 @@ const Navbar = () => {
             >
                 <nav className="w-full bg-gray-950/30 shadow-lg shadow-white/5 backdrop-blur-lg rounded-full h-[52px] flex justify-between ring-1 ring-white/50 items-center z-50">
                     <img
-                        src="/portfolio/Logo.svg"
+                        src="./Logo.svg"
                         alt=""
                         className="p-2.5 h-full"
                     />
