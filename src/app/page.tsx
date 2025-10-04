@@ -65,7 +65,7 @@ function App() {
                             <div className="md:sticky md:top-24 md:w-[50%] lg:w-[40%] h-fit flex justify-center md:justify-end p-5">
                                 <div className="max-w-[450px] w-2/3 md:w-full h-full text-center">
                                     <img
-                                        src="/portfolio/Portfolio.jpg"
+                                        src="./Portfolio.jpg"
                                         alt="rohan's photo"
                                         className="rounded-full"
                                     />
